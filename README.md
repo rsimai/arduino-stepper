@@ -8,6 +8,8 @@ and point to objects, as determined by software.
 ## Prototype
 
 ![prototype stand](./media/stand-prototype.jpg)
+![prototype stand socket](./media/stand-prototype2.jpg)
+
 
 Handcrafted from plywood, with dense wood to connect to the motor axis.
 Rotor diameter is 20cm, height is approx. 16cm.
