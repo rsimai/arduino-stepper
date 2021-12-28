@@ -19,14 +19,16 @@ Two 4-wire stepper motors, connect to Arduno Uno via pins 2-5 (a1-4) and
 external 5V power supply.
 
 Load serial4stepper.ino into the Arduino. It should appear as /dev/ttyACM0.
-Use arduino-serial.py to send commands
+Use arduino-serial.py to send commands, one per line:
 
 * l - left
 * r - right
 * u - up
 * d- down 
-
-or as an example for a real script.
+* (number) - sets the step size for all following operations
+* rot - returns the hardware counter for rotation
+* ele - returns the hardware counter for elevation
+* reset - resets the hardware counters and returns "OK"
 
 ## Next
 

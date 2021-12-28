@@ -2,6 +2,8 @@ String command;
 int stime;
 int repeat;
 int i;
+int rot;
+int ele;
 
 #define a1 2
 #define a2 3
@@ -24,18 +26,30 @@ void setup() {
   pinMode(b3, OUTPUT);
   pinMode(b4, OUTPUT);
 
-  delay(2000);
+  delay(1000);
 
   stime = 10;
-  repeat = 10;
-  //Serial.println("type r l u d");
+  repeat = 1;
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
   if (Serial.available()) {
     command = Serial.readStringUntil('\n');
     command.trim();
+    if (command.toInt() > 0) {
+      repeat = command.toInt();
+    }
+    if (command.equals("reset")) {
+      rot=0;
+      ele=0;
+      Serial.println("OK");
+    }
+    if (command.equals("rot")) {
+      Serial.println(rot);
+    }
+    if (command.equals("ele")) {
+      Serial.println(ele);
+    }
     if (command.equals("r")) {
       for (i=0; i < repeat; i++) { 
         right();
@@ -59,6 +73,7 @@ void loop() {
   }
 }
 
+
 void right() {
   digitalWrite(a1, HIGH);
       delay (stime);
@@ -72,6 +87,7 @@ void right() {
       digitalWrite(a4, HIGH);
       delay (stime);
       digitalWrite(a4, LOW);
+      rot++;
 }
 
 void left() {
@@ -87,6 +103,7 @@ void left() {
       digitalWrite(a1, HIGH);
       delay (stime);
       digitalWrite(a1, LOW);
+      rot--;
 }
 
 void up() {
@@ -102,6 +119,7 @@ void up() {
       digitalWrite(b4, HIGH);
       delay (stime);
       digitalWrite(b4, LOW);
+      ele++;
 }
 
 void down() {
@@ -117,4 +135,5 @@ void down() {
       digitalWrite(b1, HIGH);
       delay (stime);
       digitalWrite(b1, LOW);
+      ele--;
 }
