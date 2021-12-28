@@ -28,7 +28,7 @@ void setup() {
 
   stime = 10;
   repeat = 10;
-  Serial.println("type r l u d");
+  //Serial.println("type r l u d");
 }
 
 void loop() {
